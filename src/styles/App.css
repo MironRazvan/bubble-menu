@@ -47,8 +47,6 @@
 
 	display: flex;
 	align-items: center;
-
-	transition: background-color 0.3s ease-in-out;
 }
 
 .menu-item-link > svg {
@@ -100,5 +98,11 @@
 	.menu-item-link {
 		border: 0;
 		border-radius: 5rem 5rem 5rem 0;
+	}
+}
+
+@media screen and (min-width: 1023px) {
+	.header-container {
+		width: 60%;
 	}
 }
