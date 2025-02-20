@@ -6,15 +6,15 @@
 	justify-content: center;
 
 	background-color: rgb(var(--background));
-	/* opacity: 0.3; */
+	/* Background image: https://www.magicpattern.design/tools/css-backgrounds */
 	background-image: repeating-radial-gradient(
 			circle at 0 0,
 			transparent 0,
-			rgba(var(--background), 1) 3rem
+			rgba(var(--background), 1) 5rem
 		),
 		repeating-linear-gradient(
 			rgba(var(--primary), 0.2),
-			rgba(var(--secondary), 0.2)
+			rgba(var(--secondary), 0.1)
 		);
 }
 
@@ -23,7 +23,7 @@
 	z-index: 0;
 
 	max-width: 40rem;
-	height: 25rem;
+	height: 28rem;
 	padding: 6rem 1rem;
 
 	align-self: center;
@@ -41,7 +41,7 @@
 	left: 0;
 
 	/* 
-    source for doodle:
+    Background doodle:
     https://www.magicpattern.design/tools/doodle-backgrounds
      */
 	width: 100%;
@@ -58,7 +58,7 @@
 	font-family: var(--font-large);
 	width: 100%;
 	text-align: end;
-	padding-inline: 1rem;
+	padding-inline: 5%;
 }
 
 .hero-text > strong {
@@ -74,23 +74,48 @@
 	/* width: 100%; */
 	width: 0%;
 	height: 50%;
-	animation: lineStrikeAnimation ease-in 0.5s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
-	animation-delay: 1s;
+	animation: lineStrikeAnimation 1s ease-in-out 1s,
+		lineStrikeFadeIn 1s ease-out 2s forwards;
 	background-color: rgb(var(--accent));
 	z-index: -1;
 	user-select: none;
 	pointer-events: none;
 }
 
+/* text line-trough animation */
 @keyframes lineStrikeAnimation {
 	0% {
-		width: 0%;
+		width: 0;
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+
+	50% {
+		width: 100%;
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+
+	51% {
+		transform-origin: right;
 	}
 
 	100% {
 		width: 100%;
+		transform: scaleX(0);
+		transform-origin: right;
+	}
+}
+
+@keyframes lineStrikeFadeIn {
+	0% {
+		width: 100%;
+		opacity: 0;
+	}
+
+	100% {
+		width: 100%;
+		opacity: 1;
 	}
 }
 
@@ -109,6 +134,7 @@
 	padding-right: 1.5rem;
 }
 
+/* CTA button arrow pointing to the right */
 .hero-cta-btn::after {
 	content: "";
 	width: 0.75rem;
@@ -118,5 +144,25 @@
 	position: absolute;
 	border-top: 0.25rem solid rgb(var(--accent));
 	border-right: 0.25rem solid rgb(var(--accent));
-	transform: translateY(-50%) rotateZ(45deg);
+	transform-origin: center;
+	animation: arrowSpin 1s ease-in-out forwards;
+}
+
+/* CTA arrow animation */
+@keyframes arrowSpin {
+	0% {
+		transform: translateY(-50%) rotateZ(45deg);
+		transform-origin: center;
+	}
+
+	100% {
+		transform: translateY(-50%) rotateZ(405deg);
+		transform-origin: center;
+	}
+}
+
+@media only screen and (min-width: 767px) {
+	.hero-section {
+		padding-inline: 5rem;
+	}
 }

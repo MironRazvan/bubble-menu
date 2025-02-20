@@ -8,7 +8,7 @@ const LandingPage = () => {
 				<div className="hero-text">
 					Build Better <strong>Habbits</strong>
 				</div>
-				<div className="hero-subtext">One Day At A Time</div>
+				<div className="hero-subtext">Level Up, One Day At A Time</div>
 				<NavLink className="hero-cta-btn" to={"login-register"}>
 					Try Now
 				</NavLink>

@@ -8,6 +8,26 @@
 	order: 1;
 
 	font-size: 2rem;
+	background-image: radial-gradient(
+			at 43% 77%,
+			rgba(var(--secondary), 0.4) 0px,
+			transparent 50%
+		),
+		radial-gradient(
+			at 26% 17%,
+			rgba(var(--primary), 0.3) 0px,
+			transparent 50%
+		),
+		radial-gradient(
+			at 33% 26%,
+			rgba(var(--secondary), 0.4) 0px,
+			transparent 50%
+		),
+		radial-gradient(
+			at 73% 57%,
+			rgba(var(--primary), 0.3) 0px,
+			transparent 50%
+		);
 }
 
 /* header + menu */
