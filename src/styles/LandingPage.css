@@ -1,0 +1,122 @@
+.landing-page {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	background-color: rgb(var(--background));
+	/* opacity: 0.3; */
+	background-image: repeating-radial-gradient(
+			circle at 0 0,
+			transparent 0,
+			rgba(var(--background), 1) 3rem
+		),
+		repeating-linear-gradient(
+			rgba(var(--primary), 0.2),
+			rgba(var(--secondary), 0.2)
+		);
+}
+
+.hero-section {
+	position: relative;
+	z-index: 0;
+
+	max-width: 40rem;
+	height: 25rem;
+	padding: 6rem 1rem;
+
+	align-self: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.hero-section::before {
+	position: absolute;
+	z-index: -1;
+	content: "";
+	top: 0;
+	left: 0;
+
+	/* 
+    source for doodle:
+    https://www.magicpattern.design/tools/doodle-backgrounds
+     */
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+	background-position: center center;
+	background-repeat: repeat;
+	background-image: url("data:image/svg+xml;utf8,%3Csvg viewBox=%220 0 1000 1000%22 xmlns=%22http:%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3Cfilter id=%22a%22%3E%3CfeTurbulence result=%22TURBULENCE%22 baseFrequency=%22.072%22 seed=%221%22%2F%3E%3CfeDisplacementMap in=%22SourceGraphic%22 in2=%22TURBULENCE%22 scale=%2220%22%2F%3E%3C%2Ffilter%3E%3Cfilter id=%22b%22%3E%3CfeOffset dy=%2250%22 result=%22OFFSET-3%22%2F%3E%3C%2Ffilter%3E%3Cmask id=%22c%22%3E%3Cpath fill=%22%23fff%22 d=%22M0 0h1000v1000H0z%22%2F%3E%3Ccircle cx=%22437%22 cy=%22719%22 r=%226%22 filter=%22url(%23a)%22%2F%3E%3Ccircle cx=%22573%22 cy=%22682%22 r=%228%22 filter=%22url(%23a)%22%2F%3E%3Ccircle cx=%22289%22 cy=%22744%22 r=%227%22 filter=%22url(%23a)%22%2F%3E%3Ccircle cx=%22432%22 cy=%22625%22 r=%2211%22 filter=%22url(%23a)%22%2F%3E%3Cg filter=%22url(%23b)%22%3E%3Cpath fill=%22none%22 stroke-width=%226%22 stroke=%22%23000%22 d=%22M798 695.5q-78.054 171.208-262.5 134%22 filter=%22url(%23a)%22%2F%3E%3C%2Fg%3E%3Cg filter=%22url(%23b)%22%3E%3Cpath fill=%22none%22 stroke-width=%229%22 stroke=%22%23000%22 d=%22M181.5 634q-120.238-144.42-21-304%22 filter=%22url(%23a)%22%2F%3E%3C%2Fg%3E%3Cg filter=%22url(%23b)%22%3E%3Cpath fill=%22none%22 stroke-width=%227%22 stroke=%22%23000%22 d=%22M503 154.5q188.549 6.956 283.5 170%22 filter=%22url(%23a)%22%2F%3E%3C%2Fg%3E%3C%2Fmask%3E%3C%2Fdefs%3E%3Cg mask=%22url(%23c)%22%3E%3Cpath filter=%22url(%23a)%22 fill=%22rgba(48%2C118%2C136%2C1)%22 d=%22M798 695.5q-72 195.5-262.5 134T181.5 634Q18 500 160.5 330T503 154.5q200-5.5 283.5 170t11.5 371Z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+}
+
+.hero-text,
+.hero-text > strong {
+	font-size: 4rem;
+	font-family: var(--font-large);
+	width: 100%;
+	text-align: end;
+	padding-inline: 1rem;
+}
+
+.hero-text > strong {
+	position: relative;
+	z-index: inherit;
+}
+
+.hero-text > strong::after {
+	content: "";
+	position: absolute;
+	top: 25%;
+	left: 0;
+	/* width: 100%; */
+	width: 0%;
+	height: 50%;
+	animation: lineStrikeAnimation ease-in 0.5s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	animation-delay: 1s;
+	background-color: rgb(var(--accent));
+	z-index: -1;
+	user-select: none;
+	pointer-events: none;
+}
+
+@keyframes lineStrikeAnimation {
+	0% {
+		width: 0%;
+	}
+
+	100% {
+		width: 100%;
+	}
+}
+
+.hero-subtext {
+	font-size: 1rem;
+	text-align: end;
+}
+
+.hero-cta-btn {
+	text-decoration: none;
+	color: rgb(var(--accent));
+
+	position: absolute;
+	bottom: -1rem;
+	right: 2rem;
+	padding-right: 1.5rem;
+}
+
+.hero-cta-btn::after {
+	content: "";
+	width: 0.75rem;
+	height: 0.75rem;
+	top: 50%;
+	right: 0;
+	position: absolute;
+	border-top: 0.25rem solid rgb(var(--accent));
+	border-right: 0.25rem solid rgb(var(--accent));
+	transform: translateY(-50%) rotateZ(45deg);
+}
